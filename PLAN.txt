@@ -1,0 +1,19 @@
+Purpose: learn about state management. 
+Project Goal: A program that begin in a menu state. The use can manuever through various screens. 
+              On entering the game state, there is a loading screen transition. Once in the game
+		      state, there will be a series of 'play states', the user can pause at any time, 
+			  return to menu, restart. Game must have a start up phase, rounds, a game over phase.
+			  Should be able to set controls in options and pause menu
+			  Game will be a pong (maybe with variations)
+
+
+
+
+TODO:
+-create state, statestack, titlestate, and menustate classes
+-using composite design? state machines should be general enough to be nested
+
+Diagram:
+Title-> Menu -> settings
+			 -> exit
+			 -> game -> start -> round ->
