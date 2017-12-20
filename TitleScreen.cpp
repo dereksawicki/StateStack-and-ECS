@@ -6,7 +6,7 @@ TitleScreen::TitleScreen(ScreenStack& screenStack, Context context)
 	, mText("Made by Derek", *getContext().font, 30)
 {
 	mTimer.restart();
-	mText.setPosition(sf::Vector2f(350, 300));
+	mText.setPosition(sf::Vector2f(320, 300));
 	mText.setFillColor(sf::Color::White);
 }
 

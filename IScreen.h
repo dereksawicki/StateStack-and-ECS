@@ -12,7 +12,7 @@ class IScreen
 {
 public:
 	IScreen(ScreenStack& screenStack, Context context);
-	~IScreen() {};
+	virtual ~IScreen() {};
 
 	virtual void update(sf::Time detlaTime) = 0;
 	virtual void draw() = 0;

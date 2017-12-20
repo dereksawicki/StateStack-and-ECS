@@ -3,7 +3,7 @@
 #include "TitleScreen.h"
 #include "MenuScreen.h"
 
-#
+#include <iostream>
 
 App::App()
 	: mWindow(sf::VideoMode(800, 600), "Pong", sf::Style::Close)
@@ -20,7 +20,7 @@ App::~App()
 void App::init()
 {
 	mFont.loadFromFile("Media/ARCADECLASSIC.TTF");
-	mContext = new Context(mWindow, mFont);
+	mContext = new Context(mWindow, mFont, mInput);
 	mScreenStack = new ScreenStack(*mContext);
 
 	// register screens
@@ -39,6 +39,16 @@ void App::run()
 
 	while (mWindow.isOpen())
 	{
+
+		sf::Event event;
+		while (mWindow.pollEvent(event)) 
+		{
+			switch (event.type) {
+			case sf::Event::KeyPressed:
+				mInput.receiveEvent(event);
+			}
+		}
+
 		sf::Time elapsedTime = clock.restart();
 		timeSinceLastUpdate += elapsedTime;
 

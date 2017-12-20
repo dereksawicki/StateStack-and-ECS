@@ -4,6 +4,7 @@
 
 #include "ScreenStack.h"
 #include "Context.h"
+#include "Input.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
@@ -24,6 +25,7 @@ private:
 	Context* mContext;
 	sf::RenderWindow mWindow;
 	sf::Font mFont;
+	Input mInput;
 	ScreenStack* mScreenStack;
 
 };

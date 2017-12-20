@@ -1,24 +1,34 @@
 #include "MenuScreen.h"
 #include "AppConstants.h"
+#include "MenuHome.h"
+#include "MenuSettings.h"
+
+#include <iostream>
 
 MenuScreen::MenuScreen(ScreenStack& screenStack, Context context)
 	: IScreen(screenStack, context)
-	, mHeaderText("Pong Menu", *getContext().font, 24)
 {
-	mHeaderText.setPosition(sf::Vector2f(350, 300));
-	mHeaderText.setFillColor(sf::Color::White);
+	mMenuStack = new ScreenStack(context);
+
+	mMenuStack->registerScreen<MenuHome>(MenuScreen::SCREEN::Home);
+	mMenuStack->registerScreen<MenuSettings>(MenuScreen::SCREEN::Settings);
+
+	mMenuStack->pushScreen(MenuScreen::SCREEN::Home);
 }
 
 MenuScreen::~MenuScreen()
 {
-
+	delete mMenuStack;
 }
 
 void MenuScreen::update(sf::Time deltaTime)
 {
+	mMenuStack->update(deltaTime);
 }
+
+
 
 void MenuScreen::draw()
 {
-	getContext().window->draw(mHeaderText);
+	mMenuStack->draw();
 }

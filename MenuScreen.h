@@ -2,12 +2,24 @@
 #define MENU_SCREEN_H
 
 #include "IScreen.h"
+#include "MenuHome.h"
 
 
 #include <SFML/Graphics/Text.hpp>
 
+#include <functional>
+
+class MenuController;
+
 class MenuScreen : public IScreen
 {
+public:
+	enum SCREEN {
+		Home
+	  , Settings
+	};
+
+
 public:
 	MenuScreen(ScreenStack& screenStack, Context context);
 	~MenuScreen();
@@ -16,9 +28,7 @@ public:
 	virtual void draw();
 
 private:
-	// options UI
-	sf::Text mHeaderText;
-
+	ScreenStack* mMenuStack;
 };
 
 #endif

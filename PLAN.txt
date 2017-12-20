@@ -10,8 +10,21 @@ Project Goal: A program that begin in a menu state. The use can manuever through
 
 
 TODO:
--create state, statestack, titlestate, and menustate classes
--using composite design? state machines should be general enough to be nested
+=======TITLE AND MENU==========
+-[x]create state, statestack, titlestate, and menustate classes
+-[x]Need an observer class or something that translates input into relavant commands for navigating the menu. 
+    Just need to listen to up, down, and enter.
+-[x]Need a button class. Menu will have a vector of buttons that it iterates over for drawing. 
+ an int flag will indicate which is selected.
+-[x]Need to break MenuScreen down into its own state stack (MenuHome and Options).
+	-[x]switch between options and menu home
+	-options screen should let user choose control scheme (W/S or UP/DOWN)
+	-User should also be able to choose between day and night mode.
+-[x]make controlllers 'generic', they're passed a map of <event_type, lambda function>
+
+=======PONG=============
+-Game screen broken down into its own state stack (game, pause)
+
 
 Diagram:
 Title-> Menu -> settings
