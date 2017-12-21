@@ -36,9 +36,9 @@ In this way, input events are decoupled from input handling, and control layouts
 
 
 ## Todo
-*be able to move between game, pause screen, and menu
-*play an infinite game of pong against dummy AI
-*develop game structure (Games composed of rounds composed of [starting phase->game]), keep track
- of score, winner/loser screens, and such
-*add 2 player functionality by simply setting a flag in the Context that tells game to use two player controllers instead
- of one player and one AI controller.
+ * be able to move between game, pause screen, and menu
+ * play an infinite game of pong against dummy AI
+ * develop game structure (Games composed of rounds composed of [starting phase->game]), keep track
+   of score, winner/loser screens, and such
+ * add 2 player functionality by simply setting a flag in the Context that tells game to use two player controllers instead
+   of one player and one AI controller.
