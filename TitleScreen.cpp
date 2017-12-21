@@ -21,5 +21,6 @@ void TitleScreen::update(sf::Time deltaTime)
 
 void TitleScreen::draw()
 {
+	getContext().window->clear(sf::Color::Black);
 	getContext().window->draw(mText);
 }

@@ -15,7 +15,8 @@ public:
 	enum ACTION {
 		Up,
 		Down,
-		Select
+		Select,
+		Option
 	};
 
 public:

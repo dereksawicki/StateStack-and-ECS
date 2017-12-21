@@ -19,14 +19,17 @@ void InputController::onNotify(Event* event)
 
 	switch (inputEvent->mEvent.type) {
 	case sf::Event::KeyPressed:
-		if (inputEvent->mEvent.key.code == sf::Keyboard::Key::W) {
+		if (inputEvent->mEvent.key.code == mContext->controlScheme->Key(ControlScheme::CONTROL::Up)) {
 			mActionBindings[InputController::ACTION::Up]();
 		}
-		if (inputEvent->mEvent.key.code == sf::Keyboard::Key::S) {
+		if (inputEvent->mEvent.key.code == mContext->controlScheme->Key(ControlScheme::CONTROL::Down)) {
 			mActionBindings[InputController::ACTION::Down]();
 		}
-		if (inputEvent->mEvent.key.code == sf::Keyboard::Key::Return) {
+		if (inputEvent->mEvent.key.code == mContext->controlScheme->Key(ControlScheme::CONTROL::Select)) {
 			mActionBindings[InputController::ACTION::Select]();
+		}
+		if (inputEvent->mEvent.key.code == mContext->controlScheme->Key(ControlScheme::CONTROL::Option)) {
+			mActionBindings[InputController::ACTION::Option]();
 		}
 	}
 }

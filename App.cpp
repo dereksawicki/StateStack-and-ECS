@@ -20,7 +20,7 @@ App::~App()
 void App::init()
 {
 	mFont.loadFromFile("Media/ARCADECLASSIC.TTF");
-	mContext = new Context(mWindow, mFont, mInput);
+	mContext = new Context(mWindow, mFont, mInput, mControlScheme, mColorScheme);
 	mScreenStack = new ScreenStack(*mContext);
 
 	// register screens
@@ -69,7 +69,6 @@ void App::update(sf::Time dt)
 
 void App::render()
 {
-	mContext->window->clear();
 	mScreenStack->draw();
 	mContext->window->display();
 }

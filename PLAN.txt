@@ -21,6 +21,7 @@ TODO:
 	-options screen should let user choose control scheme (W/S or UP/DOWN)
 	-User should also be able to choose between day and night mode.
 -[x]make controlllers 'generic', they're passed a map of <event_type, lambda function>
+-context will need to hold a color scheme and a control scheme
 
 =======PONG=============
 -Game screen broken down into its own state stack (game, pause)

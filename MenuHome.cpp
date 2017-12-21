@@ -9,7 +9,7 @@ MenuHome::MenuHome(ScreenStack& screenStack, Context context)
 	, mButtonText("", *getContext().font, 24)
 {
 	mHeaderText.setPosition(sf::Vector2f(320, 300));
-	mHeaderText.setFillColor(sf::Color::White);
+	mHeaderText.setFillColor(getContext().colorScheme->Color(ColorScheme::Primary));
 
 	Button playButton;
 	Button optionsButton;
@@ -30,7 +30,7 @@ MenuHome::MenuHome(ScreenStack& screenStack, Context context)
 	mMenuButtons[1] = optionsButton;
 	mMenuButtons[2] = exitButton;
 
-	mButtonText.setFillColor(sf::Color::White);
+	mButtonText.setFillColor(getContext().colorScheme->Color(ColorScheme::Primary));
 
 	mSelectedOption = 0;
 
@@ -38,6 +38,7 @@ MenuHome::MenuHome(ScreenStack& screenStack, Context context)
 	actionMap[InputController::ACTION::Down] = [this]() { mSelectedOption = (mSelectedOption + 1) % SELECTIONS; };
 	actionMap[InputController::ACTION::Up] = [this]() { mSelectedOption = (mSelectedOption - 1) < 0 ? SELECTIONS - 1 : mSelectedOption - 1; };
 	actionMap[InputController::ACTION::Select] = [this]() { mMenuButtons[mSelectedOption].mFnc();  };
+	actionMap[InputController::ACTION::Option] = []() { };
 
 	mInputController = new InputController(actionMap, getContext());
 }
@@ -55,6 +56,7 @@ void MenuHome::update(sf::Time deltaTime)
 
 void MenuHome::draw()
 {
+	getContext().window->clear(getContext().colorScheme->Color(ColorScheme::COLOR::Background));
 	getContext().window->draw(mHeaderText);
 
 
